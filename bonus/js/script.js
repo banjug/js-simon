@@ -19,6 +19,12 @@ while (numbers.length < 5) {
 console.log(numbers);
 
 const numCont = document.querySelector('.cont');
+
+const inputCont = document.querySelector('.form-cont');
+const inputField = document.querySelector('.num-input');
+const inputBtn = document.getElementById('send');
+const playBtn = document.getElementById('play');
+
 const numRes = document.querySelector('.res');
 
 numbers.forEach(element => numCont.innerHTML += `<span class="num">${element}</span>`);
@@ -27,18 +33,32 @@ numbers.forEach(element => numCont.innerHTML += `<span class="num">${element}</s
 let userList = [];
 function simonSays() {
     numCont.classList.add('hidden');
-    numRes.classList.remove('hidden');
-    for (let i = 0; i < 5; i++) {
-        let userNum = parseInt(prompt('Inserisci un numero che ricordi.'));
+    numRes.classList.remove('hidden');    
+    inputCont.classList.remove('hidden');    
+}
+
+setTimeout(simonSays, 3000);
+inputBtn.addEventListener('click',
+    function() {
+        let userNum = parseInt(inputField.value);
         if (numbers.includes(userNum)) {
             userList.push(userNum);
         }
+        inputField.value = '';
     }
-    console.log(userList);
+);
 
-    userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
+console.log(userList);
 
-    
-}
-
-setTimeout(simonSays, 30000);
+playBtn.addEventListener('click',
+    function() {
+        if (userList == '') {
+            numRes.innerHTML += `<h3>Non hai ricordato nessun numero!</h3>`;
+            // userList = [];
+        } else {
+            numRes.innerHTML += `<h3>I numeri che hai ricordato sono:</h3>`;
+            userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
+            userList = [];
+        }
+    }
+);
