@@ -18,25 +18,37 @@ while (numbers.length < 5) {
 
 console.log(numbers);
 
+// seleziono i contenitori per i numeri e per il risultato
 const numCont = document.querySelector('.cont');
 const numRes = document.querySelector('.res');
 
+// stampo i numeri casuali in pagina
 numbers.forEach(element => numCont.innerHTML += `<span class="num">${element}</span>`);
 
 
-let userList = [];
 function simonSays() {
+    // array di numeri dell'utente
+    let userList = [];
+    // nascondo i numeri generati dal pc 
     numCont.classList.add('hidden');
+    // faccio apparire il contenitore del risultato 
     numRes.classList.remove('hidden');
+    // faccio inserire all'utente 5 numeri 
     for (let i = 0; i < 5; i++) {
         let userNum = parseInt(prompt('Inserisci un numero che ricordi.'));
+        // se il numero è ugule ad uno di quelli generati lo salvo
         if (numbers.includes(userNum)) {
             userList.push(userNum);
         }
     }
     console.log(userList);
 
-    userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
+    // stampo i numeri ricordati dall'utente
+    if (userList == '') {
+        numRes.innerHTML = `<h3>Non hai indovinato nessun numero!</h3>`;
+    } else {
+        userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
+    }
 
 }
 

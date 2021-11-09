@@ -18,43 +18,52 @@ while (numbers.length < 5) {
 
 console.log(numbers);
 
+// seleziono il contenitore per i numeri
 const numCont = document.querySelector('.cont');
-
+// seleziono il contenitore dell'input ed i bottoni
 const inputCont = document.querySelector('.form-cont');
 const inputField = document.querySelector('.num-input');
 const inputBtn = document.getElementById('send');
 const playBtn = document.getElementById('play');
-
+// seleziono il contenitore del risultato
 const numRes = document.querySelector('.res');
 
+// stampo i numeri casuali in pagina
 numbers.forEach(element => numCont.innerHTML += `<span class="num">${element}</span>`);
 
-
+// array di numeri dell'utente
 let userList = [];
+
 function simonSays() {
+    // nascondo i numeri generati dal pc 
     numCont.classList.add('hidden');
+    // faccio apparire il contenitore del risultato e dell'input
     numRes.classList.remove('hidden');    
     inputCont.classList.remove('hidden');    
 }
 
-setTimeout(simonSays, 3000);
+setTimeout(simonSays, 30000);
+
 inputBtn.addEventListener('click',
     function() {
+        // salvo i numeri inseriti dall'utente al click
         let userNum = parseInt(inputField.value);
+        // se il numero è ugule ad uno di quelli generati lo salvo
         if (numbers.includes(userNum)) {
             userList.push(userNum);
         }
+        // ad ogni click svuoto il campo di input 
         inputField.value = '';
     }
 );
 
 console.log(userList);
 
+// stampo i numeri ricordati dall'utente al click
 playBtn.addEventListener('click',
     function() {
         if (userList == '') {
-            numRes.innerHTML += `<h3>Non hai ricordato nessun numero!</h3>`;
-            // userList = [];
+            numRes.innerHTML = `<h3>Non hai ricordato nessun numero!</h3>`;
         } else {
             numRes.innerHTML += `<h3>I numeri che hai ricordato sono:</h3>`;
             userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
