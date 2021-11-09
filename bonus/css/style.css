@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f7ede2;
+    font-family: sans-serif;
+}
+
+header {
+    text-align: center;
+    color: #84a59d;
+    margin-top: 100px;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.alert {
+    color: #f28482;
+}
+
+.cont, .res {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.num {
+    background-color: #84a59d;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 3rem;
+}
+
+.hidden {
+    display: none;
+}

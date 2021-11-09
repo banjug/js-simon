@@ -38,6 +38,7 @@ function simonSays() {
 
     userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
 
+    
 }
 
 setTimeout(simonSays, 30000);
