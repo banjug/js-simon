@@ -13,14 +13,17 @@ header {
     text-align: center;
     color: #84a59d;
     margin-top: 100px;
-    font-weight: bold;
+}
+
+h3 {
+    margin-bottom: 20px;
 }
 
 .alert {
     color: #f28482;
 }
 
-.cont {
+.cont, .res {
     text-align: center;
     margin-top: 100px;
 }
@@ -32,4 +35,8 @@ header {
     padding: 10px;
     margin: 5px;
     font-size: 3rem;
+}
+
+.hidden {
+    display: none;
 }

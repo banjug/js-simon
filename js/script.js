@@ -19,5 +19,30 @@ while (numbers.length < 5) {
 console.log(numbers);
 
 const numCont = document.querySelector('.cont');
+const numRes = document.querySelector('.res');
 
 numbers.forEach(element => numCont.innerHTML += `<span class="num">${element}</span>`);
+
+
+let userList = [];
+function simonSays() {
+    numCont.classList.add('hidden');
+    numRes.classList.remove('hidden');
+    for (let i = 0; i < 5; i++) {
+        let userNum = parseInt(prompt('Inserisci un numero che ricordi.'));
+        if (numbers.includes(userNum)) {
+            userList.push(userNum);
+        }
+    }
+    console.log(userList);
+
+    userList.forEach(element => numRes.innerHTML += `<span class="num">${element}</span>`);
+
+    // userList.forEach(element => {
+    //     if (numbers.includes(element)) {
+    //         numRes.innerHTML += `<span class="num">${element}</span>`
+    //     }
+    // });
+}
+
+setTimeout(simonSays, 30000);
